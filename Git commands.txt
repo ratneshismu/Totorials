@@ -1,0 +1,282 @@
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~
+$ git --version
+git version 2.13.2.windows.1
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~
+$ git config --global user.name "Ratnesh Kumar" ==> To update name of a new user to the git project
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~
+$ git config --global user.email "ratkumar@ciena.com"  
+
+$ git config --list    => It will give details of git configuration
+core.symlinks=false
+core.autocrlf=true
+core.fscache=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+help.format=html
+rebase.autosquash=true
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.required=true
+filter.lfs.process=git-lfs filter-process
+credential.helper=manager
+user.name=Ratnesh Kumar
+user.email=ratkumar@ciena.com
+
+
+
+=> git help
+=>git help commit -->  To go to help document for the command
+
+
+=>
+$ git init   ===> To create a new repository in C:/Users/ratkumar/Desktop/Git
+Initialized empty Git repository in C:/Users/ratkumar/Desktop/Git/.git/
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+
+=> git add .    => Add all the changes made in project(in the current direcotry)
+
+=> ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git commit -m "This is my first commit"
+[master (root-commit) 65419e8] This is my first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Test.txt
+ 
+ 
+ => git log ==> for commit log:
+ 
+ $ git log
+commit da4e5288348d606e4c78b675a5fbd499e99d488f (HEAD -> master)
+Author: Ratnesh Kumar <ratkumar@ciena.com>
+Date:   Tue Apr 2 16:48:26 2019 +0530
+
+    commit 2
+
+commit 65419e8af7e99a5d1bc78fe89c6cde1754416565
+Author: Ratnesh Kumar <ratkumar@ciena.com>
+Date:   Tue Apr 2 16:47:07 2019 +0530
+
+    This is my first commit
+=> git log --author="Ratnesh" ===> commit list for particular author
+
+
+=> git status ==>   If there is any changes in the project also the branch info on which u r working
+
+working copy=> Stagging Area=> Repository
+git add command pushes files from working copy to stagging area
+
+
+
+=> git diff => to check difference of the files in working area(not staggeing area) and repository, view your changes
+
+$ git diff
+diff --git a/Test2.txt b/Test2.txt
+index aa7a044..23b0f00 100644
+--- a/Test2.txt
++++ b/Test2.txt
+@@ -1 +1 @@
+-ewqfwqfwfw
+\ No newline at end of file
++ewqfwqfwfwewqfwqfwfwewqfwqfwfw
+\ No newline at end of file
+diff --git a/Test3.txt b/Test3.txt
+index a2995ac..d436cad 100644
+--- a/Test3.txt
++++ b/Test3.txt
+@@ -1 +1 @@
+-assASsa
+\ No newline at end of file
++assASsawwfe
+\ No newline at end of file
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+
+
+
+
+===> git diff --staged  (to check difference of the files in stagging area and repository, view your changes
+
+
+===> git rm Test.txt to delete the file (the changes goes to stagging area so commit the changes)
+$ git rm Test.txt
+rm 'Test.txt'
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    Test.txt
+        modified:   Test2.txt
+        modified:   Test3.txt
+
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git commit -m "commiting deleting files"
+[master c5aa4f9] commiting deleting files
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+ delete mode 100644 Test.txt
+
+
+ 
+ 
+ ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git mv Test2.txt home.txt   =>> Renaming the file
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    Test2.txt -> home.txt
+
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+
+
+
+
+ ====> git commit -am "commiting directly in repository":   For all the files in working area, skip the staging area, only for editing and modifying files not for new or moving files
+ 
+ $ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    Test2.txt -> home.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   Test3.txt
+        modified:   home.txt
+
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git commit -am "commiting directly in repository"
+[master e7eec7d] commiting directly in repository
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ delete mode 100644 Test2.txt
+ create mode 100644 home.txt
+
+ 
+ 
+ 
+ 
+ 
+ ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git checkout -- index.htm              ----> to get the latest copy of file from repository, overriding local(working) copy, no modified file
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+ 
+ $ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.htm
+
+
+ratkumar@HAW-RATKUMAR-02 MINGW64 ~/Desktop/Git (master)
+$ git reset HEAD index.htm   --------------------------------> to move file from staging area to working area
+Unstaged changes after reset:
+M       index.htm
+
+ 
+ 
+ 
+ $ git checkout <commit number> -- <filename>  ( get commit no from git log <file_name>)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Current used Commands%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ To update the local workspace:
+ git checkout master
+ git pull
+ 
+ 
+ To submit the code in main repository
+ 1. git commit -am "submitting to respositiory"
+ 2. git push origin <Git_branch_Name>
+
+ To create new branch:
+ 1. git checkout -b "Geo-Alarm"
+ 
+ 
+ 
